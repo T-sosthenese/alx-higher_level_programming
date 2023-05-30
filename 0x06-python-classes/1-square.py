@@ -1,6 +1,6 @@
-#!/usr/in/python3
+#!/usr/bin/python3
 """
-module documetation
+module documentation
 """
 
 
