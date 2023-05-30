@@ -4,7 +4,7 @@ module documetation
 """
 
 
-class Square():
+class Square:
     """
     private instance attribute size
     """
