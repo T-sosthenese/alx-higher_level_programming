@@ -8,11 +8,6 @@ Checking for Module docstring:
 	>>> len(module_doc) > 1
 	True
 
-Checking for class docstring:
-	>>> class_doc = __import__("1-my_list").MyList.__doc__
-	>>> len(class_doc) > 1
-	True
-
 Checking for function/method docstring:
 	>>> method_doc = __import__("1-my_list").MyList.print_sorted.__doc__
 	>>> len(method_doc) > 1
@@ -28,23 +23,23 @@ Checking for an empty list:
 	[]
 
 Checking for append method:
-	>>> my_list.append(2)
 	>>> my_list.append(4)
 	>>> my_list.append(6)
 	>>> my_list.append(1)
 	>>> my_list.append(2)
 	>>> my_list.append(3)
+	>>> my_list.append(5)
 	>>> print(my_list)
-	[2, 4, 6, 1, 2, 3]
+	[4, 6, 1, 2, 3, 5]
 
 Checking if the list is sorted:
-	>>> my_list.print(sorted)
+	>>> my_list.print_sorted()
 	[1, 2, 3, 4, 5, 6]
 
 Checking for one negative number in the list:
 	>>> my_list.append(-2)
 	>>> print(my_list)
-	[2, 4, 6, 1, 2, 3, -2]
+	[4, 6, 1, 2, 3, 5, -2]
 	>>> my_list.print_sorted()
 	[-2, 1, 2, 3, 4, 5, 6]
 

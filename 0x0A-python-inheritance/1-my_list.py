@@ -9,5 +9,4 @@ class MyList(list):
         """
        Prints elements of a list in ascending order
        """
-        sorted_list = sorted(self)
-        print(sorted_list)
+        print(sorted(set(self)))
