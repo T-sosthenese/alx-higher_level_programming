@@ -7,13 +7,25 @@ def pascal_triangle(n):
     triangle."""
 
     if n <= 0:
-        return ""
-    p_triangle = [[1]]
-    for current_row in range(1, n):
-        row = [1]
-        prev_row = p_triangle[current_row - 1]
-        for element in range(1, current_row):
-            row.append(pre_row[element] + prev_row[element - 1])
-        row.append(1)
-        p_triangle.append(row)
-        return p_triangle
+        return list()
+
+    tr = []
+    for line in range(0, n):
+        tmp = []
+        for i in range(0, line + 1):
+            tmp.append(magic(line, i))
+        tr.append(tmp)
+    return tr
+
+
+def magic(n, k):
+    """
+    does some magic
+    """
+    result = 1
+    if (k > n - k):
+        k = n - k
+    for i in range(0, k):
+        result = result * (n - i)
+        result = result // (i + 1)
+    return result
