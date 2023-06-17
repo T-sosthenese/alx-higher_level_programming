@@ -102,5 +102,35 @@ class Rectangle(Base):
         Overrides the __str__ method to print an informal
         representation of the string as specified.
         """
-        return "[Rectangle] ({}) {}/{} {}/{}".format(
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args, **kwargs):
+        """
+        updates attributes in a list of *args
+        where *args represents arbitary non-keyworded arguments
+        and **kwargs is a dictionary of keyworded arguments
+        """
+        if len(args):
+            for i, a in enumerate (args):
+                if i == 0:
+                    self.id = a
+                elif i == 1:
+                    self.width = a
+                elif i == 2:
+                    self.height = a
+                elif i == 3:
+                    self.x = a
+                elif i == 4:
+                    self.y = a
+        else:
+            if "id" in kwargs:
+                self.id = kwargs["id"]
+            if "width" in kwargs:
+                self.width = kwargs["width"]
+            if "height" in kwargs:
+                self.height = kwargs["height"]
+            if "x" in kwargs:
+                self.x = kwargs["x"]
+            if "y" in kwargs:
+                self.y = kwargs["y"]
