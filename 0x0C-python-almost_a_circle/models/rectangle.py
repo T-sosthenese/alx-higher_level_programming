@@ -25,7 +25,7 @@ class Rectangle(Base):
     @property
     def width(self):
         """ width getter """
-        return __width
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -39,7 +39,7 @@ class Rectangle(Base):
     @property
     def height(self):
         """height getter """
-        return __height
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -96,3 +96,11 @@ class Rectangle(Base):
             for j in range(self.__width):
                 print('#', end="")
             print()
+
+    def __str__(self):
+        """
+        Overrides the __str__ method to print an informal
+        representation of the string as specified.
+        """
+        return "[Rectangle] ({}) {}/{} {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height)
