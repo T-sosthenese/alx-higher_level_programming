@@ -112,7 +112,7 @@ class Rectangle(Base):
         and **kwargs is a dictionary of keyworded arguments
         """
         if len(args):
-            for i, a in enumerate (args):
+            for i, a in enumerate(args):
                 if i == 0:
                     self.id = a
                 elif i == 1:
