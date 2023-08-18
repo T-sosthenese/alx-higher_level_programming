@@ -16,6 +16,7 @@ if __name__ == '__main__':
              state_id = states.id WHERE states.name = %s"
     c.execute(query, (state_names,))
     mydata = c.fetchall()
-    [print(my_states) for my_states in mydata]
+    my_cities = ", ".join(my_cities[0] for my_cities in mydata)
+    print(my_cities)
     c.close()
     db.close()
