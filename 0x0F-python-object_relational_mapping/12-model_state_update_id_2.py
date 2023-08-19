@@ -17,7 +17,7 @@ if __name__ == '__main__':
                            pool_pre_ping=True))
     Base.metadata.create_all(engine)
     session = Session(engine)
-    state_to_update = session.query(State).filter(id==2).first()
-    state_to_update.name = 'New Mixico'
+    state = session.query(State).filter(State.id == 2).first()
+    state.name = 'New Mixico'
     session.commit()
     session.close()
