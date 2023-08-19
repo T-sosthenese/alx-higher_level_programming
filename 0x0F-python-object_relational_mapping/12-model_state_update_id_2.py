@@ -15,8 +15,9 @@ if __name__ == '__main__':
                            sys.argv[2],
                            sys.argv[3],
                            pool_pre_ping=True))
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    state_to_update = session.query(State).filter_by(id=2).first()
+    Base.metadata.create_all(engine)
+    session = Session(engine)
+    state_to_update = session.query(State).filter(id==2).first()
     state_to_update.name = 'New Mixico'
     session.commit()
+    session.close()
