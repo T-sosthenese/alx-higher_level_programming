@@ -5,7 +5,7 @@ Adding a new state object to the database.
 
 import sys
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import Session
 
 from model_state import Base, State
 
@@ -16,12 +16,11 @@ if __name__ == '__main__':
                            sys.argv[3],
                            pool_pre_ping=True))
     Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    session = Session(engine)
     lousiana = State(name="Lousiana")
     session.add(lousiana)
     session.commit()
-    s = session.query(State).filter_by(name="Lousiana").first()
+    s = session.query(State).filter_by(name="Louisiana").first()
     if s:
         print(s.id)
     session.close()
