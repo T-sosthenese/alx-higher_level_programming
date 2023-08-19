@@ -21,5 +21,3 @@ if __name__ == '__main__':
     session.add(lousiana)
     session.commit()
     print(lousiana.id)
-
-    session.close()
