@@ -7,7 +7,7 @@ import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from model_state import State
+from model_state import Base, State
 
 if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
@@ -20,4 +20,7 @@ if __name__ == '__main__':
     lousiana = State(name="Lousiana")
     session.add(lousiana)
     session.commit()
-    print(lousiana.id)
+    s = session.query(State).filter_by(name="Lousiana").first()
+    if s:
+        print(s.id)
+    session.close()
