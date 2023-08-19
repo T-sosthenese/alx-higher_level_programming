@@ -17,7 +17,7 @@ if __name__ == '__main__':
                            pool_pre_ping=True))
     Base.metadata.create_all(engine)
     session = Session(engine)
-    lousiana = State(name="Lousiana")
+    lousiana = State(name="Louisiana")
     session.add(lousiana)
     session.commit()
     s = session.query(State).filter_by(name="Louisiana").first()
