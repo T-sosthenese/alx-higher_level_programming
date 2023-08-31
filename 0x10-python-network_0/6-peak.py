@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-# Finding the peak of an array
+# Finding the peak of arrays
 
 
 def find_peak(list_of_integers):
     """Finds the highest number in a list of integers."""
     length = len(list_of_integers)
 
-    left = 0 # leftmost index
-    right = length - 1 # rightmost index
+    left = 0  # leftmost index
+    right = length - 1  # rightmost index
 
     if length == 0:
         return None
