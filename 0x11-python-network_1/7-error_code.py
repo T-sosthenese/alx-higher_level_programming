@@ -6,11 +6,8 @@ from sys import argv
 
 if __name__ == "__main__":
     url = argv[1]
-    try:
-        response = requests.get(url)
+    response = requests.get(url)
+    if response.status_code >= 400:
+        print("Error code: {}".format(response.status_code))
+    else:
         print(response.text)
-    except requests.exceptions.RequestException as e:
-        if hasattr(e, 'response') and e.response is not None:
-            print("Error code: {}".format(e.response.status_code))
-        else:
-            print("Error: {}".format(e))
